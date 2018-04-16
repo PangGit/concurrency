@@ -10,8 +10,8 @@ public class MyThread extends Thread {
 
     private int count = 5;
 
-    //synchronized加锁
-    public void run() {
+    // synchronized 加锁
+    public synchronized void run() {
         count--;
         System.out.println(this.currentThread().getName() + " count = " + count);
     }
@@ -25,11 +25,13 @@ public class MyThread extends Thread {
          * 		   而且是多个线程同时去竞争这把锁。（也就是会有锁竞争的问题）
          */
         MyThread myThread = new MyThread();
+
         Thread t1 = new Thread(myThread, "t1");
         Thread t2 = new Thread(myThread, "t2");
         Thread t3 = new Thread(myThread, "t3");
         Thread t4 = new Thread(myThread, "t4");
         Thread t5 = new Thread(myThread, "t5");
+
         t1.start();
         t2.start();
         t3.start();
