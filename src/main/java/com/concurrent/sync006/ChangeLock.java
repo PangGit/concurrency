@@ -24,18 +24,10 @@ public class ChangeLock {
 	public static void main(String[] args) {
 	
 		final ChangeLock changeLock = new ChangeLock();
-		Thread t1 = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				changeLock.method();
-			}
-		},"t1");
-		Thread t2 = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				changeLock.method();
-			}
-		},"t2");
+
+		Thread t1 = new Thread(() -> changeLock.method(),"t1");
+		Thread t2 = new Thread(() -> changeLock.method(),"t2");
+
 		t1.start();
 		try {
 			Thread.sleep(100);
