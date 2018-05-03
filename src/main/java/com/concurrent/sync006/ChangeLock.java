@@ -1,8 +1,7 @@
 package com.concurrent.sync006;
+
 /**
  * 锁对象的改变问题
- * @author alienware
- *
  */
 public class ChangeLock {
 
@@ -36,5 +35,4 @@ public class ChangeLock {
 		}
 		t2.start();
 	}
-	
 }
