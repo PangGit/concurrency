@@ -2,8 +2,6 @@ package com.concurrent.sync003;
 
 /**
  * 对象锁的同步和异步问题
- * @author alienware
- *
  */
 public class MyObject {
 
