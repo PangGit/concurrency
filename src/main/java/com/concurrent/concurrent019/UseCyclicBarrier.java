@@ -7,6 +7,8 @@ import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static java.util.concurrent.Executors.*;
+
 public class UseCyclicBarrier {
 
 	static class Runner implements Runnable {  
@@ -34,7 +36,7 @@ public class UseCyclicBarrier {
 	
     public static void main(String[] args) throws IOException, InterruptedException {  
         CyclicBarrier barrier = new CyclicBarrier(3);  // 3 
-        ExecutorService executor = Executors.newFixedThreadPool(3);  
+        ExecutorService executor = newFixedThreadPool(3);
         
         executor.submit(new Thread(new Runner(barrier, "zhangsan")));  
         executor.submit(new Thread(new Runner(barrier, "lisi")));  

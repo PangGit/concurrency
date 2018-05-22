@@ -2,11 +2,14 @@ package com.concurrent.coll013;
 
 import java.util.concurrent.TimeUnit;
 
-public class TimeUinitTest {
+/**
+ * @author PC-20170417-666
+ */
+public class TimeUnitTest {
     private TimeUnit timeUnit = TimeUnit.DAYS;
 
-    public static void main(String[] TimeUinitTest) {
-        TimeUinitTest tut = new TimeUinitTest();
+    public static void main(String[] timeUnitTest) {
+        TimeUnitTest tut = new TimeUnitTest();
         tut.outInfo();
     }
 
