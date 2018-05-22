@@ -50,14 +50,13 @@ public class LockTest {
      */
      class Outputer {
         /**
-         * 定义一个锁，Lock是个接口，需实例化一个具体的Lock
-         */
-        Lock lock = new ReentrantLock();
-
-        /**
          * 字符串打印方法，一个个字符的打印
          */
         public void output(String name) {
+            /**
+             * 定义一个锁，Lock是个接口，需实例化一个具体的Lock
+             */
+            Lock lock = new ReentrantLock();
             lock.lock();
             try {
                 int len = name.length();
