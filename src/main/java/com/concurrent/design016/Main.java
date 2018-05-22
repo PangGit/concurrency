@@ -5,6 +5,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import static java.util.concurrent.Executors.*;
+
 public class Main {
 
 	public static void main(String[] args) throws Exception {
@@ -21,7 +23,7 @@ public class Main {
 		Consumer c3 = new Consumer(queue);
 		//创建线程池运行,这是一个缓存的线程池，可以创建无穷大的线程，没有任务的时候不创建线程。空闲线程存活时间为60s（默认值）
 
-		ExecutorService cachePool = Executors.newCachedThreadPool();
+		ExecutorService cachePool = newCachedThreadPool();
 		cachePool.execute(p1);
 		cachePool.execute(p2);
 		cachePool.execute(p3);

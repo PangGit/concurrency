@@ -15,7 +15,7 @@ public class MultiThread {
     /*static*/
     public synchronized void printNum(String tag) {
         try {
-            if (tag.equals("a")) {
+            if ("a".equals(tag)) {
                 num = 100;
                 System.out.println("tag a, set num over!");
                 Thread.sleep(1000);
@@ -29,7 +29,7 @@ public class MultiThread {
         }
     }
 
-    //注意观察run方法输出顺序
+    /**注意观察run方法输出顺序*/
     public static void main(String[] args) {
         //俩个不同的对象
         final MultiThread m1 = new MultiThread();

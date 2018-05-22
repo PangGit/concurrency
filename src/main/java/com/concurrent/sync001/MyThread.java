@@ -8,12 +8,15 @@ package com.concurrent.sync001;
  */
 public class MyThread extends Thread {
 
-    private int count = 5;
+    private static int count = 5;
 
-    // synchronized 加锁
+    /**
+     * synchronized 加锁
+     */
+    @Override
     public synchronized void run() {
         count--;
-        System.out.println(this.currentThread().getName() + " count = " + count);
+        System.out.println(currentThread().getName() + " count = " + count);
     }
 
     public static void main(String[] args) {

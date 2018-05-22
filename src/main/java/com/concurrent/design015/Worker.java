@@ -20,7 +20,9 @@ public class Worker implements Runnable {
 	public void run() {
 		while(true){
 			Task input = this.workQueue.poll();
-			if(input == null) break;
+			if(input == null) {
+				break;
+			}
 			Object output = handle(input);
 			this.resultMap.put(Integer.toString(input.getId()), output);
 		}

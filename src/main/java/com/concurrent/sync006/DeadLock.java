@@ -17,7 +17,7 @@ public class DeadLock implements Runnable {
 
     @Override
     public void run() {
-        if (tag.equals("a")) {
+        if ("a".equals(tag)) {
             synchronized (lock1) {
                 try {
                     System.out.println("当前线程 : " + Thread.currentThread().getName() + " 进入lock1执行");
@@ -30,7 +30,7 @@ public class DeadLock implements Runnable {
                 }
             }
         }
-        if (tag.equals("b")) {
+        if ("b".equals(tag)) {
             synchronized (lock2) {
                 try {
                     System.out.println("当前线程 : " + Thread.currentThread().getName() + " 进入lock2执行");

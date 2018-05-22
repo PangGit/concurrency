@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * @author PC-20170417-666
+ */
 public class AtomicUse {
 
     private static AtomicInteger count = new AtomicInteger(0);
@@ -22,7 +25,8 @@ public class AtomicUse {
         count.addAndGet(1);
         count.addAndGet(2);
         count.addAndGet(3);
-        count.addAndGet(4); //+10
+        /**+10*/
+        count.addAndGet(4);
         return count.get();
     }
 
@@ -31,7 +35,7 @@ public class AtomicUse {
 
         final AtomicUse au = new AtomicUse();
 
-        List<Thread> ts = new ArrayList<Thread>();
+        List<Thread> ts = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             ts.add(new Thread(() -> System.out.println(au.multiAdd())));
         }
