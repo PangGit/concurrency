@@ -1,4 +1,4 @@
-package thread.lock;
+package com.thread.lock;
 
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
