@@ -13,18 +13,18 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockTest {
 
     public static void main(String[] args) {
-            new LockTest().init();
+        new LockTest().init();
     }
 
     private void init() {
         Outputer outputer = new Outputer();
 
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 10, 5, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 2, 5, TimeUnit.SECONDS, new LinkedBlockingQueue<>(2));
 
         // 线程1
         Runnable myRunnable1 = () -> {
             try {
-                Thread.sleep(5);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -34,7 +34,7 @@ public class LockTest {
         // 线程2
         Runnable myRunnable2 = () -> {
             try {
-                Thread.sleep(5);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -43,20 +43,27 @@ public class LockTest {
 
         executor.execute(myRunnable1);
         executor.execute(myRunnable2);
+
+        executor.shutdown();
+
+        System.out.println("核心线程数" + executor.getCorePoolSize());
+        System.out.println("线程池数" + executor.getPoolSize());
+        System.out.println("队列任务数" + executor.getQueue().size());
     }
 
     /**
      * 自定义一个类，保存锁和待执行的任务
      */
-     class Outputer {
+    class Outputer {
+        /**
+         * 定义一个锁，Lock是个接口，需实例化一个具体的Lock
+         */
+        Lock lock = new ReentrantLock();
+
         /**
          * 字符串打印方法，一个个字符的打印
          */
         public void output(String name) {
-            /**
-             * 定义一个锁，Lock是个接口，需实例化一个具体的Lock
-             */
-            Lock lock = new ReentrantLock();
             lock.lock();
             try {
                 int len = name.length();
