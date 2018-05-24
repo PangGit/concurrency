@@ -15,6 +15,10 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @author dab
  * @version 1.0.0
  * @Description :  读写锁用于缓存系统
+ * <p>
+ * 如果现在要缓存多个数据，即要写一个缓存系统，那该如何做呢？
+ * <p>
+ * 一个缓存系统无非就是一个容器，可以存储很多缓存数据，很自然的想到使用一个Map，专门装缓存数据，然后供多个线程去使用。
  * @Date 2018/5/23 17:32
  */
 public class CacheDemo {
@@ -26,6 +30,7 @@ public class CacheDemo {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 6, 5, TimeUnit.SECONDS, new SynchronousQueue<>(true), new MyThreadFactory());
 
         int max = 3;
+
         //开启三个线程去缓存中拿key为cache1的数据
         for (int i = 0; i < max; i++) {
             Runnable runnable = () -> {
@@ -35,6 +40,7 @@ public class CacheDemo {
             };
             executor.execute(runnable);
         }
+
         //开启三个线程去缓存中拿key为cache2的数据
         for (int i = 0; i < max; i++) {
             Runnable runnable = () -> {

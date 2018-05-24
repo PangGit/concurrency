@@ -12,7 +12,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * @author dab
  * @version 1.0.0
- * @Description :锁又分为读锁和写锁，读锁与读锁不互斥，读锁与写锁互斥，写锁与写锁互斥，这是由jvm自己控制的。
+ * @Description : 2.1 读写锁的基本用法
+ * <p>
+ * 锁 —> 读锁、写锁，读锁与读锁不互斥，读锁与写锁互斥，写锁与写锁互斥，这是由jvm自己控制的。
  * <p>
  * 这很好理解，读嘛，大家都能读，不会对数据造成修改，只要涉及到写，那就可能出问题。
  * <p>
@@ -25,7 +27,7 @@ public class ReadWriteLockTest {
 
     public static void main(String[] args) {
 
-        /** 封装共享的数据、读写锁和待执行的任务的类*/
+        /* 封装共享的数据、读写锁和待执行的任务的类*/
         final Queue3 q3 = new Queue3();
 
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 10, 5, TimeUnit.SECONDS, new LinkedBlockingQueue<>(2), new MyThreadFactory());
@@ -60,15 +62,15 @@ class Queue3 {
     /**
      * 读取数据的任务方法
      */
-    public void get() {
+    void get() {
         rwl.readLock().lock(); // 上读锁
         try {
-            /** 读之前打印数据显示 */
+            /* 读之前打印数据显示 */
             System.out.println(Thread.currentThread().getName() + ":before read: " + data);
 
             Thread.sleep((long) new Random().nextInt(1000));
 
-            /** 读之后打印数据显示 */
+            /* 读之后打印数据显示 */
             System.out.println(Thread.currentThread().getName() + ":after read: " + data);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -81,18 +83,18 @@ class Queue3 {
     /**
      * 写数据的任务方法
      */
-    public void put(Object data) {
+    void put(Object data) {
         rwl.writeLock().lock(); // 上写锁
         try {
-            /**写之前打印数据显示*/
+            //写之前打印数据显示
             System.out.println(Thread.currentThread().getName() + ":before write: " + this.data);
 
             Thread.sleep((long) new Random().nextInt(1000));
 
-            /**写数据*/
+            //写数据
             this.data = data;
 
-            /**写之后打印数据显示*/
+            //写之后打印数据显示
             System.out.println(Thread.currentThread().getName() + ":after write: " + this.data);
         } catch (InterruptedException e) {
             e.printStackTrace();

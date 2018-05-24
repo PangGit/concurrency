@@ -13,6 +13,10 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @author dab
  * @version 1.0.0
  * @Description : 读写锁用于缓存数据
+ * <p>
+ * 即模拟缓存数据。
+ * <p>
+ * 实现的功能如下：现在有5个线程都需要拿数据，一开始是没有数据的，所以最先去拿数据的那个线程发现没数据，它就得去初始化一个数据，然后其他线程拿数据的时候就可以直接拿了。
  * @Date 2018/5/23 16:57
  */
 public class ReadWriteLockTest2 {
@@ -62,6 +66,7 @@ class CacheData {
         if (!cacheValid) {
             rwl.readLock().unlock(); //先把读锁释放掉
             rwl.writeLock().lock(); //上写锁
+
             if (!cacheValid) {
                 System.out.println(Thread.currentThread().getName() + ": no cache!");
                 //赋值
@@ -70,9 +75,11 @@ class CacheData {
                 cacheValid = true;
                 System.out.println(Thread.currentThread().getName() + ": already cached!");
             }
+
             rwl.readLock().lock(); //再把读锁上上
             rwl.writeLock().unlock(); //把刚刚上的写锁释放掉
         }
+
         System.out.println(Thread.currentThread().getName() + " get data: " + data);
         rwl.readLock().unlock(); //释放读锁
     }
