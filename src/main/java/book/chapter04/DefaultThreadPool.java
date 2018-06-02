@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * 6-20
  */
-public class DefaultThreadPool<Job extends Runnable> implements chapter04.ThreadPool<Job> {
+public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> {
     // 线程池最大限制数
     private static final int MAX_WORKER_NUMBERS = 10;
     // 线程池默认的数量

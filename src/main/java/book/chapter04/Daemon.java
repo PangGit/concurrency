@@ -15,7 +15,7 @@ public class Daemon {
         @Override
         public void run() {
             try {
-                chapter04.SleepUtils.second(100);
+                SleepUtils.second(100);
             } finally {
                 System.out.println("DaemonThread finally run.");
             }

@@ -12,7 +12,7 @@ import java.net.Socket;
  */
 public class SimpleHttpServer {
     // 处理HttpRequest的线程池
-    static chapter04.ThreadPool<HttpRequestHandler> threadPool = new DefaultThreadPool<HttpRequestHandler>(11);
+    static ThreadPool<HttpRequestHandler> threadPool = new DefaultThreadPool<HttpRequestHandler>(11);
     // SimpleHttpServer的根路径
     static String basePath;
     static ServerSocket serverSocket;
