@@ -10,19 +10,12 @@ import java.util.*;
  */
 public class HashMapTest {
 
-<<<<<<< HEAD
     HashMap<String, Object> hashMap = new HashMap<>();
 
     LinkedHashMap<String, Object> linkedHashMap = new LinkedHashMap<>();
 
     private HashMap getHashMap() {
-
-=======
-    private HashMap<String, Object> hashMap = new HashMap<>();
-
-    public void setMap() {
         hashMap.put("a", "1");
->>>>>>> 4a437b0e4ca2e99d1b67b8a98b2ade7b4e4758c1
         hashMap.put("b", "2");
         hashMap.put("c", "3");
         hashMap.put("d", "4");
@@ -45,40 +38,25 @@ public class HashMapTest {
         hashMap.put("x", "21");
         hashMap.put("y", "22");
         hashMap.put("z", "23");
-<<<<<<< HEAD
-
-        hashMap.put("a", "1");
-
         return this.hashMap;
-    }
-
-    static int hash(Object key) {
-        int h;
-        System.out.println(key + " hashCode:"+key.hashCode());
-=======
     }
 
     int hash(Object key) {
         int h;
->>>>>>> 4a437b0e4ca2e99d1b67b8a98b2ade7b4e4758c1
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 
     public static void main(String[] args) {
         HashMapTest hashMapTest = new HashMapTest();
 
-/*        hashMapTest.linkedHashMap.putAll(hashMapTest.getHashMap());
+        hashMapTest.linkedHashMap.putAll(hashMapTest.getHashMap());
 
         Set<String> set = hashMapTest.linkedHashMap.keySet();
 
         for (String key : set) {
             String value = (String) hashMapTest.linkedHashMap.get(key);
             System.out.println(key + "---" + value);
-        }*/
-
-        System.out.println(hash(3));
-
-
+        }
 
     }
 
