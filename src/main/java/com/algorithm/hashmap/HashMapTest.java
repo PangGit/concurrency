@@ -1,6 +1,6 @@
 package com.algorithm.hashmap;
 
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * @author dab
@@ -10,36 +10,59 @@ import java.util.HashMap;
  */
 public class HashMapTest {
 
-    HashMap<String, Object> m = new HashMap<String, Object>();
+    HashMap<String, Object> hashMap = new HashMap<>();
 
-    public void setM() {
-        m.put("a", "1");
-        m.put("b", "2");
-        m.put("c", "3");
-        m.put("d", "4");
-        m.put("e", "5");
-        m.put("f", "6");
-        m.put("g", "7");
-        m.put("h", "8");
-        m.put("i", "9");
-        m.put("j", "10");
-        m.put("k", "11");
-        m.put("o", "12");
-        m.put("p", "13");
-        m.put("q", "14");
-        m.put("r", "15");
-        m.put("s", "16");
-        m.put("t", "17");
-        m.put("u", "18");
-        m.put("v", "19");
-        m.put("w", "20");
-        m.put("x", "21");
-        m.put("y", "22");
-        m.put("z", "23");
+    LinkedHashMap<String, Object> linkedHashMap = new LinkedHashMap<>();
+
+    private HashMap getHashMap() {
+
+        hashMap.put("b", "2");
+        hashMap.put("c", "3");
+        hashMap.put("d", "4");
+        hashMap.put("e", "5");
+        hashMap.put("f", "6");
+        hashMap.put("g", "7");
+        hashMap.put("h", "8");
+        hashMap.put("i", "9");
+        hashMap.put("j", "10");
+        hashMap.put("k", "11");
+        hashMap.put("o", "12");
+        hashMap.put("p", "13");
+        hashMap.put("q", "14");
+        hashMap.put("r", "15");
+        hashMap.put("s", "16");
+        hashMap.put("t", "17");
+        hashMap.put("u", "18");
+        hashMap.put("v", "19");
+        hashMap.put("w", "20");
+        hashMap.put("x", "21");
+        hashMap.put("y", "22");
+        hashMap.put("z", "23");
+
+        hashMap.put("a", "1");
+
+        return this.hashMap;
+    }
+
+    static int hash(Object key) {
+        int h;
+        System.out.println(key + " hashCode:"+key.hashCode());
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 
     public static void main(String[] args) {
+        HashMapTest hashMapTest = new HashMapTest();
 
+/*        hashMapTest.linkedHashMap.putAll(hashMapTest.getHashMap());
+
+        Set<String> set = hashMapTest.linkedHashMap.keySet();
+
+        for (String key : set) {
+            String value = (String) hashMapTest.linkedHashMap.get(key);
+            System.out.println(key + "---" + value);
+        }*/
+
+        System.out.println(hash(3));
 
 
     }
