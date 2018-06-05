@@ -11,11 +11,11 @@ public class DeadLockDemo {
     /**
      * A锁
      */
-    private static String A = "A";
+    private static final String A = "A";
     /**
      * B锁
      */
-    private static String B = "B";
+    private static final String B = "B";
 
     public static void main(String[] args) {
         new DeadLockDemo().deadLock();
@@ -42,6 +42,7 @@ public class DeadLockDemo {
                 }
             }
         });
+
         t1.start();
         t2.start();
     }

@@ -8,8 +8,10 @@ package book.chapter01;
  */
 public class ConcurrencyTest {
 
-    /** 执行次数 */
-    private static final long count = 1_0000_0000l;
+    /**
+     * 执行次数
+     */
+    private static final long count = 1_0000_0000L;
 
     public static void main(String[] args) throws InterruptedException {
         //并发计算
@@ -23,7 +25,7 @@ public class ConcurrencyTest {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                long a = 0l;
+                long a = 0L;
                 for (long i = 0; i < count; i++) {
                     a += 1;
                 }
@@ -31,7 +33,7 @@ public class ConcurrencyTest {
             }
         });
         thread.start();
-        long b = 0l;
+        long b = 0L;
         for (long i = 0; i < count; i++) {
             b--;
         }
@@ -42,11 +44,11 @@ public class ConcurrencyTest {
 
     private static void serial() {
         long start = System.currentTimeMillis();
-        long a = 0l;
+        long a = 0L;
         for (long i = 0; i < count; i++) {
             a += 1;
         }
-        long b = 0l;
+        long b = 0L;
         for (long i = 0; i < count; i++) {
             b--;
         }
