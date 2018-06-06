@@ -40,6 +40,7 @@ public class ThreadsPoolFuture {
         } finally {
             // 关闭线程池
             executor.shutdown();
+            System.out.println("-----关闭线程池------");
         }
 
 
