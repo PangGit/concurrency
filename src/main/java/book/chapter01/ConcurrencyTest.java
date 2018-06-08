@@ -1,15 +1,5 @@
 package book.chapter01;
 
-import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
-
 /**
  * 并发和单线程执行测试
  *
@@ -28,7 +18,7 @@ public class ConcurrencyTest {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                long a = 0l;
+                long a = 0L;
                 for (int i = 0; i < count; i++) {
                     a += 1;
                 }
@@ -36,7 +26,7 @@ public class ConcurrencyTest {
             }
         });
         thread.start();
-        long b = 0l;
+        long b = 0L;
         for (long i = 0; i < count; i++) {
             b--;
         }
@@ -47,11 +37,11 @@ public class ConcurrencyTest {
 
     private static void serial() {
         long start = System.currentTimeMillis();
-        long a = 0l;
+        long a = 0L;
         for (long i = 0; i < count; i++) {
             a += 1;
         }
-        long b = 0l;
+        long b = 0L;
         for (long i = 0; i < count; i++) {
             b--;
         }
@@ -67,7 +57,6 @@ public class ConcurrencyTest {
         serial();
 
         System.out.println("----当前设备的CPU个数----" + Runtime.getRuntime().availableProcessors());
-
     }
 
 }
