@@ -23,7 +23,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * 读写锁有个接口叫ReadWriteLock，我们可以创建具体的读写锁实例，通过读写锁也可以拿到读锁和写锁。
  * @Date 2018/5/23 16:15
  */
-public class ReadWriteLockTest {
+public class ReadWriteLockDemo {
 
     public static void main(String[] args) {
 

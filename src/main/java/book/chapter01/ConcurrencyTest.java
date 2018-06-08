@@ -1,5 +1,15 @@
 package book.chapter01;
 
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
 /**
  * 并发和单线程执行测试
  *
@@ -8,15 +18,10 @@ package book.chapter01;
  */
 public class ConcurrencyTest {
 
-    /** 执行次数 */
-    private static final long count = 1_0000_0000l;
-
-    public static void main(String[] args) throws InterruptedException {
-        //并发计算
-        concurrency();
-        //单线程计算
-        serial();
-    }
+    /**
+     * 执行次数
+     */
+    private static final long count = 10_0000_0000l;
 
     private static void concurrency() throws InterruptedException {
         long start = System.currentTimeMillis();
@@ -24,7 +29,7 @@ public class ConcurrencyTest {
             @Override
             public void run() {
                 long a = 0l;
-                for (long i = 0; i < count; i++) {
+                for (int i = 0; i < count; i++) {
                     a += 1;
                 }
                 System.out.println(a);
@@ -52,6 +57,17 @@ public class ConcurrencyTest {
         }
         long time = System.currentTimeMillis() - start;
         System.out.println("serial:" + time + "ms,b=" + b + ",a=" + a);
+    }
+
+
+    public static void main(String[] args) throws InterruptedException {
+        //并发计算
+        concurrency();
+        //单线程计算
+        serial();
+
+        System.out.println("----当前设备的CPU个数----" + Runtime.getRuntime().availableProcessors());
+
     }
 
 }

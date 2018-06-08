@@ -19,7 +19,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * 实现的功能如下：现在有5个线程都需要拿数据，一开始是没有数据的，所以最先去拿数据的那个线程发现没数据，它就得去初始化一个数据，然后其他线程拿数据的时候就可以直接拿了。
  * @Date 2018/5/23 16:57
  */
-public class ReadWriteLockTest2 {
+public class ReadWriteLockCacheData {
 
     public static void main(String[] args) {
 
@@ -84,3 +84,4 @@ class CacheData {
         rwl.readLock().unlock(); //释放读锁
     }
 }
+
