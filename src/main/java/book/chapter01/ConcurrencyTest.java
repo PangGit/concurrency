@@ -11,14 +11,7 @@ public class ConcurrencyTest {
     /**
      * 执行次数
      */
-    private static final long count = 1_0000_0000L;
-
-    public static void main(String[] args) throws InterruptedException {
-        //并发计算
-        concurrency();
-        //单线程计算
-        serial();
-    }
+    private static final long count = 10_0000_0000l;
 
     private static void concurrency() throws InterruptedException {
         long start = System.currentTimeMillis();
@@ -26,7 +19,7 @@ public class ConcurrencyTest {
             @Override
             public void run() {
                 long a = 0L;
-                for (long i = 0; i < count; i++) {
+                for (int i = 0; i < count; i++) {
                     a += 1;
                 }
                 System.out.println(a);
@@ -54,6 +47,16 @@ public class ConcurrencyTest {
         }
         long time = System.currentTimeMillis() - start;
         System.out.println("serial:" + time + "ms,b=" + b + ",a=" + a);
+    }
+
+
+    public static void main(String[] args) throws InterruptedException {
+        //并发计算
+        concurrency();
+        //单线程计算
+        serial();
+
+        System.out.println("----当前设备的CPU个数----" + Runtime.getRuntime().availableProcessors());
     }
 
 }

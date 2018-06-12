@@ -100,13 +100,13 @@ public class ThreadPoolExecutorTest {
          * 首先为三个任务开启了三个核心线程1，2，3，然后第四个任务和第五个任务加入到队列中，
          * 第六个任务因为队列满了，就直接创建一个新线程4，这是一共有四个线程，没有超过最大线程数。
          * 8秒后，非核心线程收超时时间影响回收了，因此线程池只剩3个线程了。*/
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 4, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>(2),new MyThreadFactory());
+        //ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 4, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>(2),new MyThreadFactory());
 
         /**4.2 将队列大小设置为1.
          * 直接出错在第6个execute方法上。因为核心线程是3个，当加入第四个任务的时候，就把第四个放在队列中。
          * 加入第五个任务时，因为队列满了，就创建新线程执行，创建了线程4。
          * 当加入第六个线程时，也会尝试创建线程，但是因为已经达到了线程池最大线程数，所以直接抛异常了。*/
-        //ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 4, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>(1));
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 4, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>(1));
 
         /**5 核心线程数是3 ，最大线程数是4，队列是SynchronousQueue*/
         //ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 4, 5, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
