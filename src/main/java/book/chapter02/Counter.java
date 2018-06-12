@@ -42,7 +42,6 @@ public class Counter {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
         System.out.println(cas.i);
         System.out.println(cas.atomicI.get());
