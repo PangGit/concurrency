@@ -19,8 +19,8 @@ public class StringLock {
     public static void main(String[] args) {
         final StringLock stringLock = new StringLock();
 
-        Thread t1 = new Thread(() -> stringLock.method(), "t1");
-        Thread t2 = new Thread(() -> stringLock.method(), "t2");
+        Thread t1 = new Thread(stringLock::method, "t1");
+        Thread t2 = new Thread(stringLock::method, "t2");
 
         t1.start();
         t2.start();

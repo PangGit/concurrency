@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * @author PC-20170417-666
- */
 public class AtomicUse {
 
     private static AtomicInteger count = new AtomicInteger(0);
@@ -16,7 +13,7 @@ public class AtomicUse {
     /**
      * synchronized
      */
-    public synchronized int multiAdd() {
+    private synchronized int multiAdd() {
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {

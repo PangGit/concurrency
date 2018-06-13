@@ -2,14 +2,13 @@ package com.concurrent.sync005;
 
 /**
  * synchronized的重入
- *
- * @author alienware
  */
-public class SyncDubbo2 {
+public class Sync2 {
 
     static class Main {
         public int i = 4;
-        public synchronized void operationSup() {
+
+        synchronized void operationSup() {
             try {
                 i--;
                 System.out.println("Main print i = " + i);
@@ -21,7 +20,7 @@ public class SyncDubbo2 {
     }
 
     static class Sub extends Main {
-        public synchronized void operationSub() {
+        synchronized void operationSub() {
             try {
                 while (i > 0) {
                     i--;

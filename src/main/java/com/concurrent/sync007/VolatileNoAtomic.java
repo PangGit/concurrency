@@ -8,13 +8,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class VolatileNoAtomic extends Thread {
 
     //private static volatile int count;
+
+    /* AtomicInteger 原子性操作 */
     private static AtomicInteger count = new AtomicInteger(0);
+
+    /*  synchronized 同步方法 */
+    //private synchronized static void addCount() {
 
     private static void addCount() {
         for (int i = 0; i < 1000; i++) {
-            //count++ ;
+            //count++;
             count.incrementAndGet();
         }
+        /* 这里jvm会另开一线程打印输出，较耗资源。*/
         System.out.println(count);
     }
 

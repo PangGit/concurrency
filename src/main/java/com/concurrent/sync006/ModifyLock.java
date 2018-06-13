@@ -2,8 +2,6 @@ package com.concurrent.sync006;
 
 /**
  * 同一对象属性的修改不会影响锁的情况
- *
- * @author alienware
  */
 public class ModifyLock {
 
@@ -18,22 +16,21 @@ public class ModifyLock {
         this.name = name;
     }
 
-    public int getAge() {
+    private int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    private void setAge(int age) {
         this.age = age;
     }
 
-    public synchronized void changeAttributte(String name, int age) {
+    private synchronized void changeAttributte(String name, int age) {
         try {
             System.out.println("当前线程 : " + Thread.currentThread().getName() + " 开始");
             this.setName(name);
             this.setAge(age);
 
-            System.out.println("当前线程 : " + Thread.currentThread().getName() + " 修改对象内容为： "
-                    + this.getName() + ", " + this.getAge());
+            System.out.println("当前线程 : " + Thread.currentThread().getName() + " 修改对象内容为： " + this.getName() + ", " + this.getAge());
 
             Thread.sleep(2000);
             System.out.println("当前线程 : " + Thread.currentThread().getName() + " 结束");

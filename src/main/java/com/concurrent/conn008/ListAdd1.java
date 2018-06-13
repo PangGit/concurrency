@@ -3,29 +3,20 @@ package com.concurrent.conn008;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Description : 线程1添加至5个线程时，线程2停止。
+ */
 public class ListAdd1 {
 
-
-    private volatile static List list = new ArrayList();
-
-    public void add() {
-        list.add("bjsxt");
-    }
-
-    public int size() {
-        return list.size();
-    }
+    private volatile static List<String> list = new ArrayList<String>();
 
     public static void main(String[] args) {
 
-        final ListAdd1 list1 = new ListAdd1();
-
         Thread t1 = new Thread(() -> {
-
             try {
                 for (int i = 0; i < 10; i++) {
-                    list1.add();
-                    System.out.println("当前线程：" + Thread.currentThread().getName() + "添加了一个元素..");
+                    list.add("abc");
+                    System.out.println("currentThread ：" + Thread.currentThread().getName() + " add an element " + i);
                     Thread.sleep(500);
                 }
             } catch (InterruptedException e) {
@@ -36,8 +27,8 @@ public class ListAdd1 {
 
         Thread t2 = new Thread(() -> {
             while (true) {
-                if (list1.size() == 5) {
-                    System.out.println("当前线程收到通知：" + Thread.currentThread().getName() + " list size = 5 线程停止..");
+                if (list.size() == 5) {
+                    System.out.println("currentThread ：" + Thread.currentThread().getName() + "， list size = 5 ,  currentThread stop .");
                     throw new RuntimeException();
                 }
             }
@@ -46,6 +37,5 @@ public class ListAdd1 {
         t1.start();
         t2.start();
     }
-
 
 }
