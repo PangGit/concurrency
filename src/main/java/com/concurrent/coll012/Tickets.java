@@ -17,13 +17,13 @@ public class Tickets {
 
         final Vector<String> tickets = new Vector<>();
 
-        Map<String, String> map = Collections.synchronizedMap(new HashMap<String, String>());
+        //Map<String, String> map = Collections.synchronizedMap(new HashMap<String, String>());
 
         for (int i = 1; i <= 100; i++) {
             tickets.add("火车票" + i);
         }
 
-        /* Exception in thread "main" java.util.ConcurrentModificationException */
+        /* Exception in thread "main" java.util.ConcurrentModificationException , 早期迭代器在并发设计上不完善。*/
 	/*	for (Iterator iterator = tickets.iterator(); iterator.hasNext();) {
 			String string = (String) iterator.next();
             System.out.println(string);
