@@ -5,7 +5,7 @@ package com.concurrent.sync006;
  */
 public class Optimize {
 
-    public void doLongTimeTask() {
+    private void doLongTimeTask() {
         try {
             System.out.println("当前线程开始：" + Thread.currentThread().getName() + ", 正在执行一个较长时间的业务操作，其内容不需要同步");
             Thread.sleep(2000);

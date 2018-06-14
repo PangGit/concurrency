@@ -2,6 +2,7 @@ package com.concurrent.sync006;
 
 /**
  * 锁对象的改变问题
+ * @author PC-20170417-666
  */
 public class ChangeLock {
 
@@ -11,6 +12,7 @@ public class ChangeLock {
         synchronized (lock) {
             try {
                 System.out.println("当前线程 : " + Thread.currentThread().getName() + "开始");
+                /*锁对象改变，线程2与线程1 就没有先后的顺序了。*/
                 lock = "change lock";
                 Thread.sleep(2000);
                 System.out.println("当前线程 : " + Thread.currentThread().getName() + "结束");
