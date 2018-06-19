@@ -6,24 +6,33 @@ public class UseDeque {
 
 	public static void main(String[] args) {
 		
-		LinkedBlockingDeque<String> dq = new LinkedBlockingDeque<String>(10);
-		dq.addFirst("a");
-		dq.addFirst("b");
-		dq.addFirst("c");
-		dq.addFirst("d");
-		dq.addFirst("e");
-		dq.addLast("f");
-		dq.addLast("g");
-		dq.addLast("h");
-		dq.addLast("i");
-		dq.addLast("j");
-		//dq.offerFirst("k");
-		System.out.println("查看头元素：" + dq.peekFirst());
-		System.out.println("获取尾元素：" + dq.pollLast());
-		Object [] objs = dq.toArray();
-		for (int i = 0; i < objs.length; i++) {
-			System.out.println(objs[i]);
-		}
+		LinkedBlockingDeque<String> dq = new LinkedBlockingDeque<>(11);
+
+		dq.addFirst("1");
+		dq.addFirst("2");
+		dq.addFirst("3");
+		dq.addFirst("4");
+		dq.addFirst("5");
+
+		dq.addLast("6");
+		dq.addLast("7");
+		dq.addLast("8");
+		dq.addLast("9");
+		dq.addLast("10");
+
+		// Links node as first element, or returns false if full.
+        dq.offerFirst("11");
+
+        // returns first element, or null if empty.
+		System.out.println("returns first element ：" + dq.peekFirst());
+
+		// Removes and returns last element, or null if empty.
+		System.out.println("removes and returns last element ：" + dq.pollLast());
+
+		Object [] obj = dq.toArray();
+        for (Object o : obj) {
+            System.out.println(o);
+        }
 		
 	}
 }
