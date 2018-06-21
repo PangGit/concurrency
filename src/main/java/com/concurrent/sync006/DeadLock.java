@@ -2,6 +2,7 @@ package com.concurrent.sync006;
 
 /**
  * 死锁问题，在设计程序时就应该避免双方相互持有对方的锁的情况
+ *
  * @author PC-20170417-666
  */
 public class DeadLock implements Runnable {

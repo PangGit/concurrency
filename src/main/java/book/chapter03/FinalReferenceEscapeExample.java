@@ -2,7 +2,7 @@ package book.chapter03;
 
 public class FinalReferenceEscapeExample {
 
-    final int                          i;
+    final int i;
     static FinalReferenceEscapeExample obj;
 
     public FinalReferenceEscapeExample() {

@@ -35,7 +35,7 @@ public class Resource1 {
         System.out.println(Thread.currentThread().getName() + ":not synchronized in g()");
         synchronized (this) {
             for (int i = 0; i < 5; i++) {
-                System.out.println(Thread.currentThread().getName()  + ":synchronized in g()");
+                System.out.println(Thread.currentThread().getName() + ":synchronized in g()");
                 try {
                     TimeUnit.SECONDS.sleep(3);
                 } catch (InterruptedException e) {
@@ -47,7 +47,7 @@ public class Resource1 {
 
     private void h() {
         // other operations should not be locked...
-        System.out.println(Thread.currentThread().getName()  + ":not synchronized in h()");
+        System.out.println(Thread.currentThread().getName() + ":not synchronized in h()");
         synchronized (this) {
             for (int i = 0; i < 5; i++) {
                 System.out.println(Thread.currentThread().getName() + ":synchronized in h()");

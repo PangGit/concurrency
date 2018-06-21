@@ -27,7 +27,9 @@ public class MultiThread {
         }
     }
 
-    /**注意观察run方法输出顺序*/
+    /**
+     * 注意观察run方法输出顺序
+     */
     public static void main(String[] args) {
         //俩个不同的对象
         final MultiThread m1 = new MultiThread();

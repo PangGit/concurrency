@@ -5,13 +5,12 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 public class UseCopyOnWrite {
 
-	public static void main(String[] args) {
-		
-		CopyOnWriteArrayList<String> cwal = new CopyOnWriteArrayList<>();
+    public static void main(String[] args) {
 
-		CopyOnWriteArraySet<String> cwas = new CopyOnWriteArraySet<>();
+        CopyOnWriteArrayList<String> cwal = new CopyOnWriteArrayList<>();
 
-		
-		
-	}
+        CopyOnWriteArraySet<String> cwas = new CopyOnWriteArraySet<>();
+
+
+    }
 }

@@ -30,6 +30,7 @@ public class ObjectLock {
     }
 
     private final Object lock = new Object();
+
     private void method3() {
         synchronized (lock) { //任何对象锁
             try {

@@ -5,23 +5,25 @@ package com.concurrent.conn011;
  */
 public class Singleton {
 
-	/**  使用静态内部类，初始化示例。 */
-	private static class InnerSingleton {
-		private static Singleton single = new Singleton();
-	}
-	
-	private static Singleton getInstance(){
-		return InnerSingleton.single;
-	}
+    /**
+     * 使用静态内部类，初始化示例。
+     */
+    private static class InnerSingleton {
+        private static Singleton single = new Singleton();
+    }
 
-	public static void main(String[] args) {
+    private static Singleton getInstance() {
+        return InnerSingleton.single;
+    }
 
-		Thread t1 = new Thread(() -> System.out.println(getInstance().hashCode()),"t1");
-		Thread t2 = new Thread(() -> System.out.println(getInstance().hashCode()),"t2");
-		Thread t3 = new Thread(() -> System.out.println(getInstance().hashCode()),"t3");
+    public static void main(String[] args) {
 
-		t1.start();
-		t2.start();
-		t3.start();
-	}
+        Thread t1 = new Thread(() -> System.out.println(getInstance().hashCode()), "t1");
+        Thread t2 = new Thread(() -> System.out.println(getInstance().hashCode()), "t2");
+        Thread t3 = new Thread(() -> System.out.println(getInstance().hashCode()), "t3");
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
 }
