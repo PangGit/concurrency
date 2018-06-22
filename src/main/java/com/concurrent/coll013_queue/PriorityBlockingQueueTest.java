@@ -1,4 +1,4 @@
-package com.concurrent.coll013;
+package com.concurrent.coll013_queue;
 
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -8,7 +8,7 @@ import java.util.concurrent.PriorityBlockingQueue;
  * 该实现类需要自己实现一个继承了 Comparator 接口的类， 在插入资源时会按照自定义的排序规则来对资源数组进行排序。
  * 其中值大的排在数组后面 ，取值时从数组头开始取.
  */
-public class UsePriorityBlockingQueue {
+public class PriorityBlockingQueueTest {
 
     public static void main(String[] args) throws Exception {
 

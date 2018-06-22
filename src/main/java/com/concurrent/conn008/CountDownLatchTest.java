@@ -8,7 +8,7 @@ import java.util.concurrent.CountDownLatch;
  * wait:等待，释放锁；
  * notify：唤醒单个线程，不释放锁；
  */
-public class ListAdd2 {
+public class CountDownLatchTest {
 
     private volatile static List<String> list = new ArrayList<>();
 
@@ -56,7 +56,6 @@ public class ListAdd2 {
                 }
             }
             System.out.println("currentThread ：" + Thread.currentThread().getName() + "  end..");
-            throw new RuntimeException();
             //}
         }, "t2");
 

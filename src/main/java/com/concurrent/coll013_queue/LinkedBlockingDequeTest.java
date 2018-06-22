@@ -1,8 +1,8 @@
-package com.concurrent.coll013;
+package com.concurrent.coll013_queue;
 
 import java.util.concurrent.LinkedBlockingDeque;
 
-public class UseDeque {
+public class LinkedBlockingDequeTest {
 
     public static void main(String[] args) {
 

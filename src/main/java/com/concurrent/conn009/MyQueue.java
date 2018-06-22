@@ -43,7 +43,7 @@ public class MyQueue {
             list.add(obj);
             // Atomically increments by one the current value.
             count.incrementAndGet();
-            // Wakes up a single thread that is waiting on this object's monitor.
+            // Wakes start a single thread that is waiting on this object's monitor.
             lock.notify();
 
             System.out.println("add an object : " + obj);
@@ -65,7 +65,7 @@ public class MyQueue {
             object = list.removeFirst();
             // Atomically decrements by one the current value.
             count.decrementAndGet();
-            //  Wakes up a single thread that is waiting on this object's monitor.
+            //  Wakes start a single thread that is waiting on this object's monitor.
             lock.notify();
 
             // Prints a String and then terminate the line.

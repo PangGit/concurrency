@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @Description : 线程1添加至5个线程时，线程2停止。
  */
-public class ListAdd1 {
+public class ThreadVolatile {
 
     private volatile static List<String> list = new ArrayList<String>();
 
@@ -29,7 +29,7 @@ public class ListAdd1 {
             while (true) {
                 if (list.size() == 5) {
                     System.out.println("currentThread ：" + Thread.currentThread().getName() + "， list size = 5 ,  currentThread stop .");
-                    throw new RuntimeException();
+                    break;
                 }
             }
         }, "t2");
