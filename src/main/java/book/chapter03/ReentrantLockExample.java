@@ -3,7 +3,7 @@ package book.chapter03;
 import java.util.concurrent.locks.ReentrantLock;
 
 class ReentrantLockExample {
-    int           a    = 0;
+    int a = 0;
     ReentrantLock lock = new ReentrantLock();
 
     public void writer() {

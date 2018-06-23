@@ -2,6 +2,7 @@ package com.concurrent.sync006;
 
 /**
  * 锁对象的改变问题
+ *
  * @author PC-20170417-666
  */
 public class ChangeLock {

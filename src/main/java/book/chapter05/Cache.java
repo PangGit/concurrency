@@ -9,10 +9,10 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * 10-16
  */
 public class Cache {
-    private static final Map<String, Object>    map = new HashMap<String, Object>();
+    private static final Map<String, Object> map = new HashMap<String, Object>();
     private static final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
-    private static final Lock                   r   = rwl.readLock();
-    private static final Lock                   w   = rwl.writeLock();
+    private static final Lock r = rwl.readLock();
+    private static final Lock w = rwl.writeLock();
 
     public static final Object get(String key) {
         r.lock();
