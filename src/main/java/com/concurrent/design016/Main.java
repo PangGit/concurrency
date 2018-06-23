@@ -2,10 +2,9 @@ package com.concurrent.design016;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import static java.util.concurrent.Executors.*;
+import static java.util.concurrent.Executors.newCachedThreadPool;
 
 public class Main {
 

@@ -1,6 +1,8 @@
 package com.algorithm.hashmap;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 /**
  * @author dab

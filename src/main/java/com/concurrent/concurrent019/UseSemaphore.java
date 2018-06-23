@@ -1,10 +1,9 @@
 package com.concurrent.concurrent019;
 
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
-import static java.util.concurrent.Executors.*;
+import static java.util.concurrent.Executors.newCachedThreadPool;
 
 public class UseSemaphore {
 

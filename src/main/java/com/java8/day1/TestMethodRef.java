@@ -1,14 +1,10 @@
 package com.java8.day1;
 
+import org.junit.Test;
+
 import java.io.PrintStream;
 import java.util.Comparator;
-import java.util.function.BiFunction;
-import java.util.function.BiPredicate;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
-
-import org.junit.Test;
+import java.util.function.*;
 
 /*
  * 一、方法引用：若 Lambda 体中的功能，已经有方法提供了实现，可以使用方法引用

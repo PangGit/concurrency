@@ -16,17 +16,17 @@ public class Counter {
     private int i = 0;
 
     public static void main(String[] args) {
+
         final Counter cas = new Counter();
         List<Thread> ts = new ArrayList<>(600);
+
         long start = System.currentTimeMillis();
+
         for (int j = 0; j < 100; j++) {
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < 10000; i++) {
-                        cas.count();
-                        cas.safeCount();
-                    }
+            Thread t = new Thread(() -> {
+                for (int i = 0; i < 10000; i++) {
+                    cas.count();
+                    cas.safeCount();
                 }
             });
             ts.add(t);

@@ -1,11 +1,13 @@
-package com.java8.day2;;
+package com.java8.day2;
+
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-import org.junit.Test;
+;
 
 /*
  * 一、 Stream 的操作步骤

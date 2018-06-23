@@ -1,12 +1,12 @@
 package com.java8.day1;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Stream;
-
-import org.junit.Test;
 
 /*
  * 一、Stream API 的操作步骤：

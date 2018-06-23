@@ -1,6 +1,6 @@
 package com.concurrent.coll012;
 
-import java.util.*;
+import java.util.Vector;
 
 /**
  * 同步类容器：线程安全。但在某些场景下可能需要加锁来保护复合操作（迭代、跳转、条件运算）。 例如：Vector，HashTable
