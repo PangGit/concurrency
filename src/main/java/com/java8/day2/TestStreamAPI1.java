@@ -1,17 +1,11 @@
 package com.java8.day2;
 
-<<<<<<< HEAD
 import org.junit.Test;
-=======
-;
->>>>>>> 300dc75d8966c2d0a68f19b3cd6e69bb2fdab90f
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
-
-;
 
 /*
  * 一、 Stream 的操作步骤

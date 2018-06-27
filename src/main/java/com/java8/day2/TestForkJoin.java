@@ -1,10 +1,7 @@
 package com.java8.day2;
 
-<<<<<<< HEAD
 import org.junit.Test;
 
-=======
->>>>>>> 300dc75d8966c2d0a68f19b3cd6e69bb2fdab90f
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.stream.LongStream;
