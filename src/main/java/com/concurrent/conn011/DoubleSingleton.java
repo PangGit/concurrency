@@ -32,7 +32,7 @@ public class DoubleSingleton {
 
         Thread t2 = new Thread(() -> System.out.println(DoubleSingleton.getDs().hashCode()), "t2");
 
-        Thread t3 = new Thread(() -> System.out.println(DoubleSingleton.getDs().hashCode()), "t3");
+        Thread t3 = new Thread(() -> System.out.println( getDs().hashCode()), "t3");
 
         t1.start();
         t2.start();
