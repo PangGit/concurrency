@@ -5,9 +5,9 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- *  高性能无阻塞无界队列
- *  An unbounded thread-safe {@linkplain Queue queue} based on linked nodes.
- *  This queue orders elements FIFO (first-in-first-out).
+ * 高性能无阻塞无界队列
+ * An unbounded thread-safe {@linkplain Queue queue} based on linked nodes.
+ * This queue orders elements FIFO (first-in-first-out).
  */
 public class ConcurrentLinkedDequeTest {
 

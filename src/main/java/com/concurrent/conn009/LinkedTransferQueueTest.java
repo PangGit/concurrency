@@ -38,10 +38,10 @@ public class LinkedTransferQueueTest {
 
         List<Thread> list = new ArrayList<>();
 
-        for (int i = 0; i < Runtime.getRuntime().availableProcessors()+1; i++) {
+        for (int i = 0; i < Runtime.getRuntime().availableProcessors() + 1; i++) {
             int finalI = i;
             list.add(new Thread(() -> {
-                while (ltq.size()<1_0000){
+                while (ltq.size() < 1_0000) {
                     boolean b = ltq.add("thread" + finalI);
                 }
             }));
@@ -49,7 +49,7 @@ public class LinkedTransferQueueTest {
 
         Long time = System.currentTimeMillis();
 
-        for(Thread t : list){
+        for (Thread t : list) {
             t.start();
         }
 
@@ -63,25 +63,24 @@ public class LinkedTransferQueueTest {
         }
 
         Long time2 = System.currentTimeMillis();
-        System.out.println("time : " + (time2-time));
-        System.out.println("ltq.size : "+ltq.size());
+        System.out.println("time : " + (time2 - time));
+        System.out.println("ltq.size : " + ltq.size());
 
         HashMap<String, Integer> hashMap = new HashMap<>();
         for (Object aLtq : ltq) {
             String obj = (String) aLtq;
-            if (hashMap.get(obj)==null){
+            if (hashMap.get(obj) == null) {
                 hashMap.put(obj, 1);
-            }else {
+            } else {
                 int i = hashMap.get(obj);
-                hashMap.put(obj, i+1);
+                hashMap.put(obj, i + 1);
             }
         }
 
         Set<String> set = hashMap.keySet();
-        for (String key : set){
-            System.out.println( key +":"+hashMap.get(key));
+        for (String key : set) {
+            System.out.println(key + ":" + hashMap.get(key));
         }
-
 
 
     }

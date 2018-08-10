@@ -1,5 +1,8 @@
 package com.concurrent.coll012;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
 /**
@@ -17,7 +20,7 @@ public class Tickets {
 
         final Vector<String> tickets = new Vector<>();
 
-        //Map<String, String> map = Collections.synchronizedMap(new HashMap<String, String>());
+        Map<String, String> map = Collections.synchronizedMap(new HashMap<String, String>());
 
         for (int i = 1; i <= 100; i++) {
             tickets.add("火车票" + i);
@@ -30,7 +33,7 @@ public class Tickets {
 			tickets.remove(20);
 		}*/
 
-        tickets.forEach(System.out::println);
+        //tickets.forEach(System.out::println);
 
 
 /*        do {
@@ -45,10 +48,7 @@ public class Tickets {
             new Thread("线程" + i) {
                 @Override
                 public void run() {
-                    while (true) {
-                        if (tickets.isEmpty()) {
-                            break;
-                        }
+                    while (!tickets.isEmpty()) {
                         System.out.println(Thread.currentThread().getName() + "---" + tickets.remove(0));
                     }
                 }

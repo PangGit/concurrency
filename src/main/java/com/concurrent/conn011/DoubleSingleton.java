@@ -13,7 +13,7 @@ public class DoubleSingleton {
         if (ds == null) {
             try {
                 //模拟初始化对象的准备时间...
-                Thread.sleep(3000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
