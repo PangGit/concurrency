@@ -1,4 +1,4 @@
-package com.concurrent.coll013_queue;
+package com.concurrent.coll013.queue;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,7 +38,7 @@ public class ConcurrentMapTest {
         }
 
         {
-            // 支出并发排序
+            // 并发排序
             ConcurrentSkipListMap concurrentSkipListMap = new ConcurrentSkipListMap();
 
 

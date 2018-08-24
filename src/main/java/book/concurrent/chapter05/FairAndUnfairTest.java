@@ -13,8 +13,8 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class FairAndUnfairTest {
 
-    private static Lock fairLock = new ReentrantLock2(true);
-    private static Lock unfairLock = new ReentrantLock2(false);
+    private static Lock fairLock = new RepentantLock2(true);
+    private static Lock unfairLock = new RepentantLock2(false);
     private static CountDownLatch start;
 
     public void fair() {
@@ -46,30 +46,32 @@ public class FairAndUnfairTest {
         public void run() {
             try {
                 start.await();
-            } catch (InterruptedException e) {
+            } catch (InterruptedException ignored) {
             }
             for (int i = 0; i < 2; i++) {
                 lock.lock();
                 try {
-                    System.out.println("Lock by [" + getName() + "], Waiting by " + ((ReentrantLock2) lock).getQueuedThreads());
+                    System.out.println("Lock by [" + getName() + "], Waiting by " + ((RepentantLock2) lock).getQueuedThreads());
                 } finally {
                     lock.unlock();
                 }
             }
         }
 
+        @Override
         public String toString() {
             return getName();
         }
     }
 
-    private static class ReentrantLock2 extends ReentrantLock {
+    private static class RepentantLock2 extends ReentrantLock {
         private static final long serialVersionUID = -6736727496956351588L;
 
-        public ReentrantLock2(boolean fair) {
+        public RepentantLock2(boolean fair) {
             super(fair);
         }
 
+        @Override
         public Collection<Thread> getQueuedThreads() {
             List<Thread> arrayList = new ArrayList<Thread>(super.getQueuedThreads());
             Collections.reverse(arrayList);

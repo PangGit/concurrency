@@ -1,8 +1,11 @@
-package com.concurrent.coll013_queue;
+package com.concurrent.coll013.queue;
 
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author PC-20170417-666
+ */
 public class SynchronousQueueTest {
 
     public static void main(String[] args) throws Exception {
@@ -31,6 +34,7 @@ public class SynchronousQueueTest {
         t1.start();
 
         TimeUnit.SECONDS.sleep(2);
+
         Thread t2 = new Thread(() -> synchronousQueue.add("abc"));
         t2.start();
     }

@@ -1,4 +1,4 @@
-package com.concurrent.coll013_queue;
+package com.concurrent.coll013.queue;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;

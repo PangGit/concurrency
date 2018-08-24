@@ -1,11 +1,12 @@
-package com.concurrent.coll013_queue;
+package com.concurrent.coll013.queue;
 
 import java.util.concurrent.PriorityBlockingQueue;
 
 /**
- * @Description :  优先级阻塞队列 PriorityBlockingQueue
+ * 优先级阻塞队列 PriorityBlockingQueue
  * <p>
  * 该实现类需要自己实现一个继承了 Comparator 接口的类， 在插入资源时会按照自定义的排序规则来对资源数组进行排序。
+ * <p>
  * 其中值大的排在数组后面 ，取值时从数组头开始取.
  */
 public class PriorityBlockingQueueTest {
@@ -27,14 +28,15 @@ public class PriorityBlockingQueueTest {
         t3.setName("id=1");
 
         //return this.id > task.id ? 1 : 0;
-        q.add(t1);      //3
-        q.add(t2);      //4
-        q.add(t3);      //1
+        q.add(t1);
+        q.add(t2);
+        q.add(t3);
 
         // 1 3 4
         System.out.println("--1--容器：" + q);
 
-        System.out.println(q.take());  // 在获取时，对容器整体排序。
+        // 在获取时，对容器整体排序。
+        System.out.println(q.take());
         System.out.println("--2--容器：" + q);
 
         System.out.println(q.take());

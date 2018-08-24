@@ -1,5 +1,8 @@
-package com.concurrent.coll013_queue;
+package com.concurrent.coll013.queue;
 
+/**
+ * @author PC-20170417-666
+ */
 public class Task implements Comparable<Task> {
 
     private int id;

@@ -1,4 +1,4 @@
-package com.concurrent.coll013_queue;
+package com.concurrent.coll013.queue;
 
 import java.util.ArrayList;
 import java.util.Queue;

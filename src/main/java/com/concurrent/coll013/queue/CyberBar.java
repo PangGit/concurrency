@@ -1,20 +1,25 @@
-package com.concurrent.coll013_queue;
+package com.concurrent.coll013.queue;
 
 import java.util.concurrent.DelayQueue;
 
-public class WangBa implements Runnable {
+/**
+ * 网吧
+ *
+ * @author dd
+ */
+public class CyberBar implements Runnable {
 
-    private DelayQueue<Wangmin> queue = new DelayQueue<>();
+    private DelayQueue<Netizen> queue = new DelayQueue<>();
 
     public boolean work = true;
 
     public void start(String name, String id, int money) {
-        Wangmin man = new Wangmin(name, id, 1000 * money + System.currentTimeMillis());
+        Netizen man = new Netizen(name, id, 1000 * money + System.currentTimeMillis());
         System.out.println("网名" + man.getName() + " 身份证" + man.getId() + "交钱" + money + "块,开始上机...");
         this.queue.add(man);
     }
 
-    public void end(Wangmin man) {
+    public void end(Netizen man) {
         System.out.println("网名" + man.getName() + " 身份证" + man.getId() + "时间到下机...");
     }
 
@@ -22,7 +27,7 @@ public class WangBa implements Runnable {
     public void run() {
         while (work) {
             try {
-                Wangmin man = queue.take();
+                Netizen man = queue.take();
                 end(man);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -33,14 +38,15 @@ public class WangBa implements Runnable {
     public static void main(String args[]) {
         try {
             System.out.println("网吧开始营业");
-            WangBa wangBa = new WangBa();
+            CyberBar cyberBar = new CyberBar();
 
-            Thread thread = new Thread(wangBa);
+            Thread thread = new Thread(cyberBar);
             thread.start();
 
-            wangBa.start("路人甲", "123", 1);
-            wangBa.start("路人乙", "234", 10);
-            wangBa.start("路人丙", "345", 5);
+            cyberBar.start("路人甲", "123", 3);
+            cyberBar.start("路人乙", "234", 10);
+            cyberBar.start("路人丙", "345", 5);
+            System.out.println("---------------------------");
         } catch (Exception e) {
             e.printStackTrace();
         }
