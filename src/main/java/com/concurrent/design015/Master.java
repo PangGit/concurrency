@@ -8,13 +8,13 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class Master {
 
     //1 有一个盛放任务的容器
-    private ConcurrentLinkedQueue<Task> workQueue = new ConcurrentLinkedQueue<Task>();
+    private ConcurrentLinkedQueue<Task> workQueue = new ConcurrentLinkedQueue<>();
 
     //2 需要有一个盛放worker的集合
-    private HashMap<String, Thread> workers = new HashMap<String, Thread>();
+    private HashMap<String, Thread> workers = new HashMap<>();
 
     //3 需要有一个盛放每一个worker执行任务的结果集合
-    private ConcurrentHashMap<String, Object> resultMap = new ConcurrentHashMap<String, Object>();
+    private ConcurrentHashMap<String, Object> resultMap = new ConcurrentHashMap<>();
 
     //4 构造方法
     public Master(Worker worker, int workerCount) {
@@ -46,7 +46,7 @@ public class Master {
                 return false;
             }
         }
-        return true;
+        return true; 
     }
 
     //8 计算结果方法

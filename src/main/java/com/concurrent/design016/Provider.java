@@ -16,7 +16,7 @@ public class Provider implements Runnable {
     //随机对象
     private static Random r = new Random();
 
-    public Provider(BlockingQueue queue) {
+    Provider(BlockingQueue<Data> queue) {
         this.queue = queue;
     }
 
@@ -41,8 +41,7 @@ public class Provider implements Runnable {
         }
     }
 
-    public void stop() {
+    void stop() {
         this.isRunning = false;
     }
-
 }

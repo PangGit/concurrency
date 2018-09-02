@@ -1,11 +1,11 @@
-package com.concurrent.design014;
+package com.concurrent.design014_future;
 
 public class RealData implements Data {
 
     private String result;
 
     public RealData(String queryStr) {
-        System.out.println("根据" + queryStr + "进行查询，这是一个很耗时的操作..");
+        System.out.println("根据[" + queryStr + "]进行查询，这是一个很耗时的操作..");
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

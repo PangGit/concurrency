@@ -5,7 +5,7 @@ public final class Data {
     private String id;
     private String name;
 
-    public Data(String id, String name) {
+    Data(String id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -28,7 +28,9 @@ public final class Data {
 
     @Override
     public String toString() {
-        return "{id: " + id + ", name: " + name + "}";
+        return "Data{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
-
 }

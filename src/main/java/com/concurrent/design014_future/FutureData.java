@@ -1,6 +1,6 @@
-package com.concurrent.design014;
+package com.concurrent.design014_future;
 
-public class FutureData implements Data {
+public class  FutureData implements Data {
 
     private RealData realData;
 

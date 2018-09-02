@@ -5,9 +5,9 @@ import java.util.concurrent.BlockingQueue;
 
 public class Consumer implements Runnable {
 
-    private BlockingQueue<Data> queue;
+    private BlockingQueue queue;
 
-    public Consumer(BlockingQueue queue) {
+    Consumer(BlockingQueue queue) {
         this.queue = queue;
     }
 
@@ -19,7 +19,7 @@ public class Consumer implements Runnable {
         while (true) {
             try {
                 //获取数据
-                Data data = this.queue.take();
+                Data data = (Data) this.queue.take();
                 //进行数据处理。休眠0 - 1000毫秒模拟耗时
                 Thread.sleep(r.nextInt(1000));
                 System.out.println("当前消费线程：" + Thread.currentThread().getName() + "， 消费成功，消费数据为id: " + data.getId());

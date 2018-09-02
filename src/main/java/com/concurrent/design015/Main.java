@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Master master = new Master(new Worker(), 20);
+        Master master = new Master(new Worker(), 100);
 
         Random r = new Random();
         for (int i = 1; i <= 100; i++) {
