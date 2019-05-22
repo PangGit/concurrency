@@ -22,7 +22,7 @@ public class Search {
     /**
      * 顺序查找（linear search ）
      */
-    private static int sequenceSearch(int a[], int value, int n) {
+    private static int sequenceSearch(int[] a, int value, int n) {
         int i;
         for (i = 0; i < n; i++) {
             if (a[i] == value) {
@@ -36,7 +36,7 @@ public class Search {
     /**
      * 二分查找（binary search），递归版本
      */
-    private static int binarySearch2(int a[], int value, int low, int high) {
+    private static int binarySearch2(int[] a, int value, int low, int high) {
         int mid = low + (high - low) / 2;
         if (a[0] > value || a[a.length - 1] < value) {
             return -1;
