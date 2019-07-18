@@ -21,6 +21,11 @@ public class Search {
 
     /**
      * 顺序查找（linear search ）
+     *
+     * @param a     数组
+     * @param value 查询目标值
+     * @param n     数组长度
+     * @return 目标值位置
      */
     private static int sequenceSearch(int[] a, int value, int n) {
         int i;
@@ -35,6 +40,12 @@ public class Search {
 
     /**
      * 二分查找（binary search），递归版本
+     *
+     * @param a     数组
+     * @param value 查询目标值
+     * @param low   最小值
+     * @param high  最大值
+     * @return 目标值位置
      */
     private static int binarySearch2(int[] a, int value, int low, int high) {
         int mid = low + (high - low) / 2;
@@ -53,9 +64,9 @@ public class Search {
 
     public static void main(String[] args) {
 
-        System.out.println("---linear search---position：" + sequenceSearch(disorderlyQueue, 0, disorderlyQueue.length));
+        System.out.println("---linear search---position：" + sequenceSearch(disorderlyQueue, 111, disorderlyQueue.length));
 
-        System.out.println("---binary search---position：" + binarySearch2(orderlyQueue, 9, 0, orderlyQueue.length));
+        System.out.println("---binary search---position：" + binarySearch2(orderlyQueue, 18, 0, 9));
 
     }
 
