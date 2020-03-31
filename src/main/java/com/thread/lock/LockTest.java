@@ -1,5 +1,7 @@
 package com.thread.lock;
 
+import com.thread.pool.MyThreadFactory;
+
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -21,7 +23,7 @@ public class LockTest {
     private void init() {
         Outputer outputer = new Outputer();
 
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 2, 5, TimeUnit.SECONDS, new LinkedBlockingQueue<>(2));
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 2, 5, TimeUnit.SECONDS, new LinkedBlockingQueue<>(2), new MyThreadFactory());
 
         // 线程1
         Runnable myRunnable1 = () -> {

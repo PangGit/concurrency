@@ -9,6 +9,7 @@ public class TicketThread extends Thread {
 
     private int ticket = 10;
 
+    @Override
     public void run() {
         for (int i = 0; i < 10; i++) {
             synchronized (this) {

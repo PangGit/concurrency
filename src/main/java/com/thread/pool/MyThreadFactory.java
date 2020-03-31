@@ -11,15 +11,18 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class MyThreadFactory implements ThreadFactory {
 
-    private static final AtomicInteger poolNumber = new AtomicInteger(1);
+    private static final AtomicInteger POOL_NUMBER = new AtomicInteger(1);
+
     private final ThreadGroup group;
+
     private final AtomicInteger threadNumber = new AtomicInteger(1);
+
     private final String namePrefix;
 
     public MyThreadFactory() {
         SecurityManager var1 = System.getSecurityManager();
         this.group = var1 != null ? var1.getThreadGroup() : Thread.currentThread().getThreadGroup();
-        this.namePrefix = "自定义 pool-" + poolNumber.getAndIncrement() + "-thread-";
+        this.namePrefix = "自定义 pool-" + POOL_NUMBER.getAndIncrement() + "-thread-";
     }
 
     @Override
