@@ -75,7 +75,7 @@ public class ThreadPoolExecutorTest {
          * 首先为三个任务开启了三个核心线程1，2，3，然后第四个任务和第五个任务加入到队列中，
          * 第六个任务因为队列满了，就直接创建一个新线程4，这是一共有四个线程，没有超过最大线程数。
          * 8秒后，非核心线程收超时时间影响回收了，因此线程池只剩3个线程了。*/
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 4, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>(2), new MyThreadFactory());
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 3, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>(2), new MyThreadFactory());
 
         /* 4.2 将队列大小设置为1.
          * 直接出错在第6个execute方法上。因为核心线程是3个，当加入第四个任务的时候，就把第四个放在队列中。
@@ -88,6 +88,13 @@ public class ThreadPoolExecutorTest {
          * 加入第4个任务时，线程池满了，
          * 加入第5个线程时，也会尝试创建线程，但是因为已经达到了线程池最大线程数，所以直接抛异常了。*/
         // ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 4, 5, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
+
+        // 拒绝策略
+        // ThreadPoolExecutor.AbortPolicy      丢弃任务，抛出RejectedExecutionException异常（默认）。
+        // ThreadPoolExecutor.DiscardPolicy    丢弃任务，不抛出异常。
+        // ThreadPoolExecutor.DiscardOldestPolicy   丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）
+        // ThreadPoolExecutor.CallerRunsPolicy      由调用线程处理该任务
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
 
         executor.execute(myRunnable);
         executor.execute(myRunnable);
