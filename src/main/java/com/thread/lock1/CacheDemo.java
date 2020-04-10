@@ -1,4 +1,4 @@
-package com.thread.lock;
+package com.thread.lock1;
 
 import com.thread.pool.MyThreadFactory;
 
