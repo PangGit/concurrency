@@ -24,7 +24,9 @@ public class ThreadsPoolFuture {
         };
 
         /* 核心线程数为6，最大线程数为10。超时时间为5秒。线程数大于核心线程数，新开线程，核心线程默认情况下不会被回收，不受超时时间限制。*/
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(6, 10, 5, TimeUnit.SECONDS, new SynchronousQueue<>());
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(6, 10, 5, TimeUnit.SECONDS,
+                new SynchronousQueue<>(), new MyThreadFactory(), new ThreadPoolExecutor.AbortPolicy()
+        );
 
         Future<String> future0 = null;
         for (int j = 0; j < 6; j++) {
