@@ -10,9 +10,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * @author dab
- * @version 1.0.0
- * @Description : 2.1 读写锁的基本用法
+ * 2.1 读写锁的基本用法
  * <p>
  * 锁 —> 读锁、写锁，读锁与读锁不互斥，读锁与写锁互斥，写锁与写锁互斥，这是由jvm自己控制的。
  * <p>
@@ -21,7 +19,10 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * 我们写代码的时候只要在正确的位置上相应的锁即可。
  * <p>
  * 读写锁有个接口叫ReadWriteLock，我们可以创建具体的读写锁实例，通过读写锁也可以拿到读锁和写锁。
- * @Date 2018/5/23 16:15
+ *
+ * @author dab
+ * @version 1.0.0
+ * @date 2018/5/23 16:15
  */
 public class ReadWriteLockDemo {
 
@@ -35,9 +36,7 @@ public class ReadWriteLockDemo {
         for (int i = 0; i < 3; i++) {
 
             // 开启三个线程写数据
-            Runnable thread1 = () -> {
-                q3.put(new Random().nextInt(100));
-            };
+            Runnable thread1 = () -> q3.put(new Random().nextInt(100));
 
             // 开启三个线程读数据
             Runnable thread2 = q3::get;
@@ -57,7 +56,7 @@ class Queue3 {
     /**
      * 定义读写锁
      */
-    private ReadWriteLock rwl = new ReentrantReadWriteLock();
+    private final ReadWriteLock rwl = new ReentrantReadWriteLock();
 
     /**
      * 读取数据的任务方法
@@ -68,7 +67,7 @@ class Queue3 {
             /* 读之前打印数据显示 */
             System.out.println(Thread.currentThread().getName() + ":before read: " + data);
 
-            Thread.sleep((long) new Random().nextInt(1000));
+            Thread.sleep(new Random().nextInt(1000));
 
             /* 读之后打印数据显示 */
             System.out.println(Thread.currentThread().getName() + ":after read: " + data);
@@ -89,7 +88,7 @@ class Queue3 {
             //写之前打印数据显示
             System.out.println(Thread.currentThread().getName() + ":before write: " + this.data);
 
-            Thread.sleep((long) new Random().nextInt(1000));
+            Thread.sleep(new Random().nextInt(1000));
 
             //写数据
             this.data = data;
