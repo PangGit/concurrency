@@ -3,9 +3,7 @@ package com.queue;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.PriorityQueue;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.*;
 
 /**
  * 队列
@@ -108,6 +106,12 @@ public class QueueTest {
                     }
                 }
             }).start();
+        }
+
+        {
+            ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, new SynchronousQueue<>());
+
+
         }
     }
 
