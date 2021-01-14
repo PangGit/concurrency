@@ -13,7 +13,13 @@ public class ThreadsPoolFuture {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         // 无返还值
-        Runnable runnable = () -> System.out.println(Thread.currentThread().getName() + " run");
+        Runnable runnable = () -> {
+            System.out.println(Thread.currentThread().getName() + " run");
+            Thread.currentThread().setUncaughtExceptionHandler((Thread t, Throwable e) -> {
+                System.out.println(t.getName() + ": " + e.getMessage());
+            });
+            throw new RuntimeException("this is a exception!");
+        };
 
         AtomicInteger atomicInteger = new AtomicInteger(0);
         // 有返回值
@@ -42,7 +48,7 @@ public class ThreadsPoolFuture {
             System.out.println("处理中断异常");
         } catch (ExecutionException e) {
             // 处理无法执行任务异常
-            System.out.println("处理无法执行任务异常");
+            System.out.println("处理无法执行任务异常:" + e.getMessage());
         } finally {
             System.out.println("CorePoolSize:" + executor.getCorePoolSize());
             System.out.println("PoolSize:" + executor.getPoolSize());
