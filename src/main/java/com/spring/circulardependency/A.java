@@ -1,5 +1,8 @@
-package com.spring;
+package com.spring.circulardependency;
 
+/**
+ * @author Pangdb
+ */
 public class A {
 
     private B b;

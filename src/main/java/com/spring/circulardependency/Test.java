@@ -1,4 +1,4 @@
-package com.spring;
+package com.spring.circulardependency;
 
 import lombok.SneakyThrows;
 
@@ -11,7 +11,7 @@ import java.util.Map;
  * <p>
  * https://juejin.cn/post/6844904122160775176
  */
-public class T {
+public class Test {
 
     public static void main(String[] args) {
         // 假装扫描出来的对象
