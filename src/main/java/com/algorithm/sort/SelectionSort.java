@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class SelectionSort implements IArraySort {
 
     @Override
-    public int[] sort(int[] sourceArray) throws Exception {
+    public int[] sort(int[] sourceArray) {
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
 
         // 总共要经过 N-1 轮比较

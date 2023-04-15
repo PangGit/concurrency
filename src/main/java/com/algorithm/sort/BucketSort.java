@@ -10,14 +10,14 @@ public class BucketSort implements IArraySort {
     private static final InsertSort insertSort = new InsertSort();
 
     @Override
-    public int[] sort(int[] sourceArray) throws Exception {
+    public int[] sort(int[] sourceArray) {
         // 对 arr 进行拷贝，不改变参数内容
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
 
         return bucketSort(arr, 5);
     }
 
-    private int[] bucketSort(int[] arr, int bucketSize) throws Exception {
+    private int[] bucketSort(int[] arr, int bucketSize) {
         if (arr.length == 0) {
             return arr;
         }
