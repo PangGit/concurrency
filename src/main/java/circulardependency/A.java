@@ -1,4 +1,4 @@
-package com.spring.circulardependency;
+package circulardependency;
 
 /**
  * @author Pangdb

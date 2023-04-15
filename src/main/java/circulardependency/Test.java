@@ -1,4 +1,4 @@
-package com.spring.circulardependency;
+package circulardependency;
 
 import lombok.SneakyThrows;
 
@@ -13,6 +13,11 @@ import java.util.Map;
  */
 public class Test {
 
+    /**
+     * 放置创建好的bean Map
+     */
+    private static Map<String, Object> cacheMap = new HashMap<>(2);
+
     public static void main(String[] args) {
         // 假装扫描出来的对象
         Class[] classes = {A.class, B.class};
@@ -26,11 +31,6 @@ public class Test {
 
 
     }
-
-    /**
-     * 放置创建好的bean Map
-     */
-    private static Map<String, Object> cacheMap = new HashMap<>(2);
 
     @SneakyThrows
     private static <T> T getBean(Class<T> beanClass) {
