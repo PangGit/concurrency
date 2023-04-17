@@ -36,9 +36,9 @@ public class BucketSort implements IArraySort {
         int[][] buckets = new int[bucketCount][0];
 
         // 利用映射函数将数据分配到各个桶中
-        for (int i = 0; i < arr.length; i++) {
-            int index = (int) Math.floor((arr[i] - minValue) / bucketSize);
-            buckets[index] = arrAppend(buckets[index], arr[i]);
+        for (int j : arr) {
+            int index = (int) Math.floor((j - minValue) / bucketSize);
+            buckets[index] = arrAppend(buckets[index], j);
         }
 
         int arrIndex = 0;
