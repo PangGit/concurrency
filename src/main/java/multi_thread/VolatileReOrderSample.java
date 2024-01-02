@@ -14,7 +14,7 @@ public class VolatileReOrderSample {
     // 修饰加 volatile ： 禁止重排序
     // 第一个操作是 volatile 写操作，
     // 第二个操作是 volatile 读操作。
-    private static volatile int a = 0, b = 0;
+    private static int a = 0, b = 0;
 
     public static void main(String[] args) throws InterruptedException {
         int i = 0;
@@ -40,14 +40,16 @@ public class VolatileReOrderSample {
             thread1.join();
             thread2.join();
             //等两个线程都执行完毕后拼接结果
-            String result = "第" + i + "次执行x=" + x + "y=" + y;
+            String result = "第" + i + "次执行x=" + x + " y=" + y;
             //如果x=0且y=0，则跳出循环
             if (x == 0 && y == 0) {
                 // 因为指令被重排序了，x=b先于a=1执行，y=a先于b=1执行。
                 System.out.println(result);
                 break;
             } else {
-                System.out.println(result);
+                if (i % 10000 == 0) {
+                    System.out.println(result);
+                }
             }
         }
     }
@@ -57,6 +59,6 @@ public class VolatileReOrderSample {
         long end;
         do {
             end = System.nanoTime();
-        } while (start + (long) 10000 >= end); // 等待10000纳秒
+        } while (start + (long) 10 >= end); // 等待10000纳秒
     }
 }
