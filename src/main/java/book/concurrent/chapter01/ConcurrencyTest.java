@@ -20,7 +20,7 @@ public class ConcurrencyTest {
             for (int i = 0; i < COUNT; i++) {
                 a += 1;
             }
-            System.out.println(a);
+            System.out.println("a=" + a);
         });
         thread.start();
         long b = 0L;
@@ -28,8 +28,7 @@ public class ConcurrencyTest {
             b--;
         }
         thread.join();
-        long time = System.currentTimeMillis() - start;
-        System.out.println("concurrency :" + time + "ms,b=" + b);
+        System.out.println("concurrency:" + (System.currentTimeMillis() - start) + "ms,b=" + b);
     }
 
     private static void serial() {
