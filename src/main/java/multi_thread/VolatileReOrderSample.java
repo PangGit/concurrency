@@ -47,7 +47,7 @@ public class VolatileReOrderSample {
                 System.out.println(result);
                 break;
             } else {
-                if (i % 10000 == 0) {
+                if (i % 10_000 == 0) {
                     System.out.println(result);
                 }
             }
@@ -59,6 +59,6 @@ public class VolatileReOrderSample {
         long end;
         do {
             end = System.nanoTime();
-        } while (start + (long) 10 >= end); // 等待10000纳秒
+        } while (start + (long) 10_000 >= end); // 等待10000纳秒
     }
 }
