@@ -1,5 +1,8 @@
 package leetcode.topic002;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <a href="https://leetcode.cn/problems/add-two-numbers/description/">2. 两数相加</a>
  */
@@ -22,7 +25,7 @@ public class AddTwoNumbers {
         }
     }
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         //定义一个新联表伪指针，用来指向头指针，返回结果
         ListNode prev = new ListNode(0);
         //定义一个进位数的指针，用来存储当两数之和大于10的时候，
@@ -66,7 +69,22 @@ public class AddTwoNumbers {
     }
 
     public static void main(String[] args) {
+        ListNode l3 = new ListNode(3);
+        ListNode l2 = new ListNode(4, l3);
+        ListNode l1 = new ListNode(2, l2);
 
+        ListNode n3 = new ListNode(4);
+        ListNode n2 = new ListNode(6, n3);
+        ListNode n1 = new ListNode(5, n2);
 
+        ListNode node = new AddTwoNumbers().addTwoNumbers(l1, n1);
+
+        List<Integer> list = new ArrayList<>();
+        while (node != null) {
+            list.add(node.val);
+            node = node.next;
+        }
+
+        System.out.println(list);
     }
 }
