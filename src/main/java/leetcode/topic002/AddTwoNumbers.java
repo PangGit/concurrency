@@ -41,9 +41,9 @@ public class AddTwoNumbers {
             //将两个链表的值，进行相加，并加上进位数
             int sum = x + y + carry;
             //计算进位数
-            carry = sum / 10;
+            carry = sum > 9 ? 1 : 0;
             //计算两个数的和，此时排除超过10的请况（大于10，取余数）
-            sum = sum % 10;
+            sum = sum > 9 ? sum - 10 : sum;
             //将求和数赋值给新链表的节点，
             //注意这个时候不能直接将sum赋值给cur.next = sum。这时候会报，类型不匹配。
             //所以这个时候要创一个新的节点，将值赋予节点
@@ -62,12 +62,17 @@ public class AddTwoNumbers {
         //如果最后两个数，相加的时候有进位数的时候，就将进位数，赋予链表的新节点。
         //两数相加最多小于20，所以的的值最大只能时1
         if (carry == 1) {
-            cur.next = new ListNode(carry);
+            cur.next = new ListNode(1);
         }
         //返回链表的头节点
         return prev.next;
     }
 
+    /**
+     * 输入：l1 = [2,4,3], l2 = [5,6,4]
+     * 输出：[7,0,8]
+     * 解释：342 + 465 = 807.
+     */
     public static void main(String[] args) {
         ListNode l3 = new ListNode(3);
         ListNode l2 = new ListNode(4, l3);
