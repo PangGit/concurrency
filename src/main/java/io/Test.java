@@ -4,8 +4,14 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 
+/** 文件移动程序 - 将指定目录中的所有文件递归移动到目标目录 包含防止文件覆盖的逻辑，当目标目录中存在同名文件时会自动重命名 */
 public class Test {
 
+  /**
+   * 主函数 - 执行文件移动操作
+   *
+   * @param args 命令行参数数组
+   */
   public static void main(String[] args) {
 
     // 移动这个文件夹及其子文件夹中所有文件到当前文件夹。
@@ -25,6 +31,7 @@ public class Test {
         return;
       }
 
+      // 遍历源目录树并移动每个文件到目标目录
       Files.walkFileTree(
           sourceDir,
           new SimpleFileVisitor<>() {
@@ -52,9 +59,13 @@ public class Test {
     }
   }
 
-  // ... existing code ...
-
-  // 辅助方法：生成唯一文件名
+  /**
+   * 生成唯一的文件名以避免覆盖现有文件
+   *
+   * @param directory 目标目录路径
+   * @param originalName 原始文件名
+   * @return 保证在目标目录中唯一的文件名
+   */
   private static String generateUniqueName(Path directory, String originalName) {
     String newName = originalName;
     int counter = 1;
