@@ -15,10 +15,10 @@ public class Test {
   public static void main(String[] args) {
 
     // 移动这个文件夹及其子文件夹中所有文件到当前文件夹。
-    Path sourceDir = Paths.get("D:\\Documents\\Book");
+    Path sourceDir = Paths.get("E:\\Web\\【尚硅谷】Vue全家桶");
 
     // 当前文件夹
-    Path targetDir = Paths.get("D:\\Documents\\Book2").toAbsolutePath();
+    Path targetDir = Paths.get("E:\\Web\\Vue全家桶").toAbsolutePath();
 
     try {
       if (!Files.exists(sourceDir)) {
